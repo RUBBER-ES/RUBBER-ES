@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/@turbowarp/packager@2.0.0/dist/scaffolding/scaffolding-full.js"></script>
+    <style>
+        html, body, #project {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="project"></div>
+    <script>
+        const COMMAND = 'load-os-file:';
+
+        async function dataUrlToBytes(dataUrl) {
+          const res = await fetch('http://localhost:3333/fs/read?encoding=base64&path='+dataUrl);
+          const json = await res.json(); 
+          const res2 = await fetch('data:application/octet-stream;base64,'+json.contents);
+          return await res2.arrayBuffer();
+        }        
+
+        window.addEventListener('message', async function(event) {
+            if(!event.data.startsWith(COMMAND)) return;
+            /* debugger; */
+            const scaffolding = new Scaffolding.Scaffolding();
+            scaffolding.width = 480; /* Custom stage width */
+            scaffolding.height = 360; /* Custom stage height */
+            scaffolding.resizeMode = 'dynamic-resize'; /* or '' or 'stretch' */
+            scaffolding.editableLists = false; /* Affects list monitors */
+
+            
+            const projectData = await dataUrlToBytes(event.data.substring(COMMAND.length)); 
+            scaffolding.setup();
+            scaffolding.appendTo(document.getElementById('project'));
+            scaffolding.setUsername("User1");
+            scaffolding.loadProject(projectData)
+                .then(() => {
+                    scaffolding.start();
+                })
+                .catch((error) => {
+                    console.error("loadProject: "+error)
+                });            
+        });
+    </script>
+</body>
+</html>
