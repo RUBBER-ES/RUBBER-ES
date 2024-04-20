@@ -7,30 +7,7 @@
 (function (Scratch) {
   "use strict";
 
-  const defaultIframe = `
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>PostMessageChild</title>
-    <script>
-    window.onload = function() {
-        document.getElementById('click').addEventListener('click', function() {
-            parent.postMessage(msg.value, '*');
-        });
-      }
-      window.addEventListener('message', function(event) {
-        rmsg.value = event.data;
-      });
-</script>
-</head>
-<body>
-    <input type=text id=msg><input type=button id=click value=gsso>
-    <input type=text id=rmsg>
-</body>
-</html>
-
-  `;
+  const defaultIframe = "<p>hello world</p>";
 
   /** @type {HTMLIFrameElement|null} */
   let iframe = null;
@@ -62,15 +39,7 @@
     "interest-cohort": "'none'",
   };
 
-  const SANDBOX = [
-    "allow-same-origin",
-    "allow-scripts",
-    "allow-forms",
-    "allow-modals",
-    "allow-popups",
 
-    // The big one we don't want to include is allow-top-navigation
-  ];
 
   let x = 0;
   let y = 0;
@@ -124,7 +93,6 @@
     iframe.style.height = "100%";
     iframe.style.border = "none";
     iframe.style.position = "absolute";
-    iframe.setAttribute("sandbox", SANDBOX.join(" "));
     iframe.setAttribute(
       "allow",
       Object.entries(featurePolicy)
