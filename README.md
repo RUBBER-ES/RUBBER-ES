@@ -19,3 +19,4 @@
 - [ ] WiFi, Bluetooth and wired connections manager through nodejs
 - [ ] Installation dialoge for custom apps
 - [ ] Docs repo complete
+- [ ] Home screen renderer
