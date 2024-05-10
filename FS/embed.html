@@ -45,6 +45,8 @@
                 })
                 .catch((error) => {
                     console.error("loadProject: "+error)
+                    var message = "OS.TRIGGER.exitapp.run";
+                    window.parent.postMessage(message, "*");
                 });            
         });
         document.addEventListener('keydown', exitApp);
