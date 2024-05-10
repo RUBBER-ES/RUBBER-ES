@@ -47,6 +47,14 @@
                     console.error("loadProject: "+error)
                 });            
         });
+        document.addEventListener('keydown', exitApp);
+
+        function exitApp(e) {
+          if(e.key=="Home"){
+            var message = "OS.TRIGGER.exitapp.run";
+            window.parent.postMessage(message, "*");
+          }
+        }
     </script>
 </body>
 </html>
