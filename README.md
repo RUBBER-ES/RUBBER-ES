@@ -9,14 +9,14 @@
 7.  Press the green flag. The code is 0000.
 ## Roadmap for first release
 - [x] Create Lockscreen
-- [x] Create login page with typed numbeer dots
+- [x] Create login page with typed number dots
 - [x] create taskbar renderer
-- [x] Render sb3 file with scafolding api
+- [x] Render sb3 file with scaffolding api
 - [x] Render custom icons
-- [x] Create nodejs filesystem server to remove the nessesarity for the files extension
+- [x] Create nodejs filesystem server to remove the necessity for the files extension
 - [x] Fetch nodejs server
 - [x] Home button
 - [ ] WiFi, Bluetooth and wired connections manager through nodejs
-- [ ] Installation dialoge for custom apps
+- [ ] Installation dialog for custom apps
 - [ ] Docs repo complete
 - [ ] Home screen renderer
