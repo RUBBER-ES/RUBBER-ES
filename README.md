@@ -20,3 +20,4 @@
 - [ ] Installation dialog for custom apps
 - [ ] Docs repo complete
 - [ ] Home screen renderer
+- [ ] Detect app crashing and return to home screen
