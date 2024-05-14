@@ -17,7 +17,7 @@
     <div id="project"></div>
     <script>
         const COMMAND = 'load-os-file:';
-
+        var messagerecived = false;
         async function dataUrlToBytes(dataUrl) {
           const res = await fetch('http://localhost:3333/fs/read?encoding=base64&path='+dataUrl);
           const json = await res.json(); 
@@ -26,8 +26,12 @@
         }        
 
         window.addEventListener('message', async function(event) {
+            
             if(!event.data.startsWith(COMMAND)) return;
             /* debugger; */
+            console.log("gtm");
+            messagerecived = true;
+
             const scaffolding = new Scaffolding.Scaffolding();
             scaffolding.width = 480; /* Custom stage width */
             scaffolding.height = 360; /* Custom stage height */
@@ -50,7 +54,12 @@
                 });            
         });
         document.addEventListener('keydown', exitApp);
-
+        window.setTimeout(function(){
+            if(!messagerecived){
+                window.parent.postMessage("OS.ALEART.noapp.send");
+            }
+        },3000)
+        window.parent.postMessage("OS.TRIGGER.enterapp.run","*")
         function exitApp(e) {
           if(e.key=="Home"){
             var message = "OS.TRIGGER.exitapp.run";
