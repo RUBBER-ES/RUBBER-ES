@@ -19,5 +19,5 @@
 - [ ] WiFi, Bluetooth and wired connections manager through nodejs
 - [ ] Installation dialog for custom apps
 - [ ] Docs repo complete
-- [ ] Home screen renderer
+- [x] Home screen renderer
 - [x] Detect app crashing and return to home screen
