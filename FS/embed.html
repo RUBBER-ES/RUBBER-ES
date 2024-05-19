@@ -24,13 +24,16 @@
           const res2 = await fetch('data:application/octet-stream;base64,'+json.contents);
           return await res2.arrayBuffer();
         }        
-
+        var notime = window.setTimeout(function(){
+            if(!messagerecived){
+                window.parent.postMessage("OS.ALEART.noapp.send");
+            }
+        },3000)
         window.addEventListener('message', async function(event) {
             
             if(!event.data.startsWith(COMMAND)) return;
             /* debugger; */
-            console.log("gtm");
-            messagerecived = true;
+            clearTimeout(notime);
 
             const scaffolding = new Scaffolding.Scaffolding();
             scaffolding.width = 480; /* Custom stage width */
@@ -54,11 +57,7 @@
                 });            
         });
         document.addEventListener('keydown', exitApp);
-        window.setTimeout(function(){
-            if(!messagerecived){
-                window.parent.postMessage("OS.ALEART.noapp.send");
-            }
-        },3000)
+
         window.parent.postMessage("OS.TRIGGER.enterapp.run","*")
         function exitApp(e) {
           if(e.key=="Home"){
