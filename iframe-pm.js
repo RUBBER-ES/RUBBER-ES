@@ -272,6 +272,11 @@
             opcode: 'messageFromChild',
             text: 'message from child',
 
+          },
+          {
+            opcode: "clearMessageFromChild",
+            blockType: Scratch.BlockType.COMMAND,
+            text: Scratch.translate("clear the last message received from child"),
           }
         ],
         menus: {
@@ -373,6 +378,10 @@
 
     postMessage({ MESSAGE }) {
       iframe.contentWindow.postMessage(MESSAGE);
+    }
+
+    clearMessageFromChild() {
+      lastMessageFromChild = "";
     }
 
     messageFromChild() {
