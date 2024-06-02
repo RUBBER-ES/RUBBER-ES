@@ -2,7 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <script src="https://cdn.jsdelivr.net/npm/@turbowarp/packager@2.0.0/dist/scaffolding/scaffolding-full.js"></script>
+    <script>
+        let dresolver = null;
+        let delivrdPromise = new Promise((resolver) => dresolver = resolver);
+        function jsdelivr_delivrd() {
+            dresolver();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@turbowarp/packager@2.0.0/dist/scaffolding/scaffolding-full.js" onload="jsdelivr_delivrd()"></script>
     <style>
         html, body, #project {
             width: 100%;
@@ -16,6 +23,7 @@
 <body>
     <div id="project"></div>
     <script>
+
         const COMMAND = 'load-os-file:';
         var messagerecived = false;
         async function dataUrlToBytes(dataUrl) {
@@ -34,6 +42,8 @@
             if(!event.data.startsWith(COMMAND)) return;
             /* debugger; */
             clearTimeout(notime);
+
+            await delivrdPromise;
 
             const scaffolding = new Scaffolding.Scaffolding();
             scaffolding.width = 480; /* Custom stage width */
