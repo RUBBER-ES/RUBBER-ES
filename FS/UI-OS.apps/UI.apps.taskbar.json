@@ -2,6 +2,7 @@
   "0": {
     "title":"Example app",
     "data":"./Supersimpleproject1.sb3",
-    "icon":"./exampleapp.svg"
+    "icon":"./exampleapp.svg",
+    "resize":false
   }
 }

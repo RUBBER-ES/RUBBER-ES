@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",
-    "fs-rest-api": "https://github.com/RUBBER-ES/fs-rest-api",
+    "fs-rest-api": "https://github.com/RUBBER-ES/fs-rest-api#9c46a21f1a53c5c00174d0f866568cd2b0a693b0",
     "image-data-uri": "^2.0.1"
   }
 }

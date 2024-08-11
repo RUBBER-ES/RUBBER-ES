@@ -2,6 +2,7 @@
   "0": {
     "title":"Your screen size",
     "data":"./Supersimpleproject2.sb3",
-    "icon":"./Supersimpleproject2.png"
+    "icon":"./Supersimpleproject2.png",
+    "resize":true
   }
 }
