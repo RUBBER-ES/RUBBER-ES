@@ -3,6 +3,7 @@ var app = express();
 var fsAPI = require('fs-rest-api');
 var path = require('path');
 var imageDataURI = require('image-data-uri');
+var fs = require('node:fs')
 
 // set the routing prefix and base directory
 app.use('/fs', fsAPI(path.join(__dirname, '../FS')));
@@ -21,6 +22,16 @@ function readImage(req, res) {
     .catch((err) => console.dir(err));
 };
 
+function getScaffolding(req, res) {
+  fs.readFile('../FS/scaffolding-with-music.js', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    res.send(data);
+  });
+}
 app.get('/read-image', readImage);
+app.get('/scaffolding', getScaffolding)
 
 

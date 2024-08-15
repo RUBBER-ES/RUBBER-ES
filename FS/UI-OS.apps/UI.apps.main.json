@@ -4,5 +4,11 @@
     "data":"./Supersimpleproject2.sb3",
     "icon":"./Supersimpleproject2.png",
     "resize":true
+  },
+  "1": {
+    "title":"The Adventures Of Bobby",
+    "data":"./p4hmobile.sb3",
+    "icon":"./taob.svg",
+    "resize":false
   }
 }
