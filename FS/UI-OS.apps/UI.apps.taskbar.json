@@ -1,8 +1,14 @@
 {
   "0": {
-    "title":"Example app",
-    "data":"./Supersimpleproject1.sb3",
-    "icon":"./exampleapp.svg",
-    "resize":false
+    "title": "Example app",
+    "data": "./Supersimpleproject1.sb3",
+    "icon": "./exampleapp.svg",
+    "resize": false
+  },
+  "1": {
+    "title": "INSTALL",
+    "data": "UI-OS.apps/install.sb3",
+    "icon": "UI-OS.apps/install.svg",
+    "resize": true
   }
 }

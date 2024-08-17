@@ -6,6 +6,12 @@ var imageDataURI = require('image-data-uri');
 var fs = require('node:fs')
 
 // set the routing prefix and base directory
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
+  res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept, Authorization, X-Requested-With');
+  next();
+});
 app.use('/fs', fsAPI(path.join(__dirname, '../FS')));
 app.set('port', process.env.PORT || 3333);
 var server = app.listen(app.get('port'), function() {

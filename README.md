@@ -17,7 +17,7 @@
 - [x] Fetch nodejs server
 - [x] Home button
 - [ ] WiFi, Bluetooth and wired connections manager through nodejs
-- [ ] Installation dialog for custom apps
+- [x] Installation dialog for custom apps
 - [ ] Docs repo complete
 - [x] Home screen renderer
 - [x] Detect app crashing and return to home screen
